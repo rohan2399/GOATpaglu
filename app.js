@@ -1,4 +1,4 @@
-// Replace the products array in your app.js with this REAL product data OR load from backend
+// Static product array with REAL Qikink product data
 const products = [
     {
         id: 1,
@@ -36,41 +36,6 @@ const products = [
     }
     // You can add more products later as you create them in Qikink
 ];
-
-// Load products dynamically from backend (OPTIONAL - use this instead of static array above)
-async function loadProductsFromBackend() {
-  try {
-    const response = await fetch(`${BACKEND_URL}/products`);
-    const data = await response.json();
-
-    if (data.success) {
-      // Transform Qikink API response to your frontend product model
-      products = data.data.map(qikinkProduct => ({
-        id: qikinkProduct.product_id,
-        name: qikinkProduct.product_name,
-        price: qikinkProduct.selling_price,
-        originalPrice: qikinkProduct.original_price,
-        image: qikinkProduct.image_url || "/api/placeholder/300/300",
-        category: qikinkProduct.category || "Basic",
-        sizes: qikinkProduct.sizes || [],
-        colors: qikinkProduct.colors || [],
-        description: qikinkProduct.description || '',
-        rating: qikinkProduct.rating || 4.8,
-        reviews: qikinkProduct.reviews_count || 15,
-        qikinkProductId: qikinkProduct.product_id,
-        qikinkVariations: qikinkProduct.variations || {}
-      }));
-
-      filteredProducts = [...products];
-      loadShopProducts(); // Your function to render products on page
-      loadFeaturedProducts();
-    } else {
-      console.error('Failed to fetch products from backend:', data.error);
-    }
-  } catch (error) {
-    console.error('Error loading products:', error);
-  }
-}
 
 // Helper function to get the correct Qikink SKU
 function getQikinkSKU(productId, size, color) {
@@ -116,9 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadFeaturedProducts();
     loadShopProducts();
     setupCategoryFilter();
-    
-    // OPTIONAL: Use this instead of static products array
-    // loadProductsFromBackend();
 });
 
 function initializeApp() {
