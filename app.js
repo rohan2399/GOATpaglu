@@ -3,38 +3,33 @@ const products = [
     {
         id: 1,
         name: "Unisex Standard Crew T-Shirt",
-        price: 799, // Your selling price (you can adjust this)
-        originalPrice: 999, // Your original price
-        image: "/api/placeholder/300/300", // You can add real image later
+        price: 799,
+        originalPrice: 999,
+        image: "/api/placeholder/300/300",
         category: "Basic",
-        sizes: ["S", "M", "L", "XL", "XXL"], // Available sizes from Qikink
-        colors: ["White", "Black"], // Available colors from Qikink
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        colors: ["White", "Black"],
         description: "Premium unisex crew neck t-shirt with custom DTF printing. Professional quality guaranteed by Qikink.",
         rating: 4.8,
         reviews: 15,
-        // IMPORTANT: Your REAL Qikink product details
-        qikinkProductId: 62944074, // From your dashboard
-        qikinkBasePrice: 256.35, // Qikink's cost to you
-        qikinkPrintType: 17, // DTF = 17
+        qikinkProductId: 62944074,
         qikinkVariations: {
-            // Map size-color combinations to Qikink SKUs
             "White": {
-                "S": "MStRnHs-Wh-S",
-                "M": "MStRnHs-Wh-M", 
-                "L": "MStRnHs-Wh-L",
-                "XL": "MStRnHs-Wh-XL",
-                "XXL": "MStRnHs-Wh-XXL"
+                "S": "v-9him1COBaVZV18ANNBQuubDQqgnW9ns=",   // Replace with your actual Variant SKUs
+                "M": "v-8Xk2mDEFgUyT17BNNCRvvcdEqhnZ8nt=",   // from Qikink dashboard
+                "L": "v-7Jl3nEFGhVzU18COODSwwdeGrioA9ou=",
+                "XL": "v-6Km4oGHIiWaV19DPPETxxefHsjqB0pv=",
+                "XXL": "v-5Ln5pHIJjXbW20EQQFUyydfItkrC1qw="
             },
             "Black": {
-                "S": "MStRnHs-Bk-S",
-                "M": "MStRnHs-Bk-M",
-                "L": "MStRnHs-Bk-L", 
-                "XL": "MStRnHs-Bk-XL",
-                "XXL": "MStRnHs-Bk-XXL"
+                "S": "v-4Mo6qIJKkYcX21FRRGVzzegJulrD2rx=",   // Replace with your actual Variant SKUs
+                "M": "v-3Np7rJKLlZdY22GSsHW00fhKvmsE3sy=",   // from Qikink dashboard
+                "L": "v-2Oq8sKLMmAeZ23HTtIX11giLwntF4tz=",
+                "XL": "v-1Pr9tLMNnBfa24IUuJY22hjMxouG5u0=",
+                "XXL": "v-0Qs0uMNOoCgb25JVvKZ33ikNypvH6v1="
             }
         }
     }
-    // You can add more products later as you create them in Qikink
 ];
 
 // Helper function to get the correct Qikink SKU
