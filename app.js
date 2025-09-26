@@ -15,7 +15,7 @@ const products = [
         qikinkProductId: 62944074,
         qikinkVariations: {
             "White": {
-                "S": "v-9him1COBaVZV18ANNBQuubDQqgnW9ns=		",   // Replace with your actual Variant SKUs
+                "S": "v-9him1COBaVZV18ANNBQuubDQqgnW9ns==",   // Replace with your actual Variant SKUs
                 "M": "v-8Xk2mDEFgUyT17BNNCRvvcdEqhnZ8nt= ",   // from Qikink dashboard
                 "L": "v-7Jl3nEFGhVzU18COODSwwdeGrioA9ou= ",
                 "XL": "v-6Km4oGHIiWaV19DPPETxxefHsjqB0pv= ",
