@@ -545,7 +545,6 @@ async function handleQikinkCheckout(e) {
     submitBtn.disabled = true;
 
     try {
-        // Get form data
         const formData = new FormData(e.target);
         const customerData = {
             firstName: formData.get('firstName'),
@@ -559,7 +558,6 @@ async function handleQikinkCheckout(e) {
             paymentMethod: formData.get('paymentMethod')
         };
 
-        // Validate required fields
         const requiredFields = ['firstName', 'email', 'phone', 'address', 'city', 'state', 'zipCode'];
         for (let field of requiredFields) {
             if (!customerData[field]) {
@@ -567,36 +565,32 @@ async function handleQikinkCheckout(e) {
             }
         }
 
-        // Generate a shorter order number (max 15 chars)
-        
-        const orderNumber = 'ORD1234567890';
-
-
-        // Calculate totals
+        const orderNumber = `ORD${Date.now().toString().slice(-10)}`;
         const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         const shipping = subtotal > 500 ? 0 : 50;
         const total = subtotal + shipping;
 
-        // Prepare order data for Qikink
+        const lineItems = cart.map(item => {
+            const sku = getQikinkSKU(item.productId, item.size, item.color);
+            if (!sku) {
+                throw new Error(`Invalid size/color combination: ${item.color} ${item.size}`);
+            }
+            return {
+                search_from_my_products: 1,
+                quantity: item.quantity.toString(),
+                print_type_id: 17,
+                price: item.price.toString(),
+                sku: sku
+                // no designs key at all for existing products!
+            };
+        });
+
         const orderData = {
             order_number: orderNumber,
             qikink_shipping: "1",
             gateway: customerData.paymentMethod === 'cod' ? 'COD' : 'PREPAID',
             total_order_value: total.toString(),
-            line_items: cart.map(item => {
-                const qikinkSKU = getQikinkSKU(item.productId, item.size, item.color);
-                if (!qikinkSKU) {
-                    throw new Error(`Invalid size/color combination: ${item.color} ${item.size}`);
-                }
-                return {
-                    search_from_my_products: 1,
-                    quantity: item.quantity.toString(),
-                    print_type_id: 17,
-                    price: item.price.toString(),
-                    sku: qikinkSKU,
-                    
-                };
-            }),
+            line_items: lineItems,
             shipping_address: {
                 first_name: customerData.firstName,
                 last_name: customerData.lastName || "",
@@ -610,7 +604,6 @@ async function handleQikinkCheckout(e) {
             }
         };
 
-        // Send order to backend
         const response = await fetch(`${BACKEND_URL}/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -632,7 +625,6 @@ async function handleQikinkCheckout(e) {
         } else {
             throw new Error(result.error || 'Order failed');
         }
-
     } catch (error) {
         console.error('Checkout error:', error);
         showNotification(`Order failed: ${error.message}`, 'error');
