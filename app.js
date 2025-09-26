@@ -594,7 +594,7 @@ async function handleQikinkCheckout(e) {
                     print_type_id: 17,
                     price: item.price.toString(),
                     sku: qikinkSKU,
-                    designs: []
+                    
                 };
             }),
             shipping_address: {
