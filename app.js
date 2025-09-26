@@ -558,18 +558,35 @@ async function handleQikinkCheckout(e) {
         const shipping = subtotal > 500 ? 0 : 50;
         const total = subtotal + shipping;
 
+        // 🔍 DEBUG: Log cart items before processing
+        console.log('🛒 Cart items before processing:', cart);
+
         const lineItems = cart.map(item => {
             const sku = getQikinkSKU(item.productId, item.size, item.color);
+            
+            // 🔍 DEBUG: Log SKU lookup for each item
+            console.log(`🔍 Looking up SKU for Product ${item.productId}, ${item.color} ${item.size}:`, sku);
+            
             if (!sku) {
+                console.error(`❌ No SKU found for ${item.color} ${item.size}`);
                 throw new Error(`Invalid size/color combination: ${item.color} ${item.size}`);
             }
-            return {
+            
+            const lineItem = {
                 search_from_my_products: 1,
                 quantity: item.quantity.toString(),
                 sku: sku,
                 price: item.price.toString()
             };
+            
+            // 🔍 DEBUG: Log final line item
+            console.log(`✅ Created line item:`, lineItem);
+            
+            return lineItem;
         });
+
+        // 🔍 DEBUG: Log all line items
+        console.log('📦 All line items:', lineItems);
 
         const orderData = {
             order_number: orderNumber,
@@ -590,6 +607,9 @@ async function handleQikinkCheckout(e) {
             }
         };
 
+        // 🔍 DEBUG: Log final order data
+        console.log('🚀 Final order data being sent:', JSON.stringify(orderData, null, 2));
+
         const response = await fetch(`${BACKEND_URL}/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -598,10 +618,13 @@ async function handleQikinkCheckout(e) {
 
         if (!response.ok) {
             const errorText = await response.text();
+            console.error('❌ Backend response error:', errorText);
             throw new Error(`Server error: ${response.status} - ${errorText}`);
         }
 
         const result = await response.json();
+        console.log('✅ Backend response:', result);
+        
         if (result.success && result.data) {
             showOrderConfirmation(result.data, customerData, total);
             cart = [];
@@ -612,7 +635,7 @@ async function handleQikinkCheckout(e) {
             throw new Error(result.error || 'Order failed');
         }
     } catch (error) {
-        console.error('Checkout error:', error);
+        console.error('❌ Checkout error:', error);
         showNotification(`Order failed: ${error.message}`, 'error');
     } finally {
         orderInProgress = false;
@@ -620,6 +643,7 @@ async function handleQikinkCheckout(e) {
         submitBtn.disabled = false;
     }
 }
+
 
 function showOrderConfirmation(orderResult, customerData, total) {
     const modal = document.getElementById('orderConfirmationModal');
