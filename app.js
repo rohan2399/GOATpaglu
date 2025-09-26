@@ -15,7 +15,7 @@ const products = [
         qikinkProductId: 62944074,
         qikinkVariations: {
             "White": {
-                        "S": "MStRnHs-Wh-S",    // Product SKU instead of Variant SKU
+                        "S": "MVnHs-Wh-S",    // Product SKU instead of Variant SKU
                         "M": "MStRnHs-Wh-M", 
                         "L": "MStRnHs-Wh-L",
                         "XL": "MStRnHs-Wh-XL",
