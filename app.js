@@ -568,7 +568,9 @@ async function handleQikinkCheckout(e) {
         }
 
         // Generate a shorter order number (max 15 chars)
-        const orderNumber = `ORD${Date.now().toString().slice(-10)}`;
+        
+        const orderNumber = 'ORD1234567890';
+
 
         // Calculate totals
         const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
