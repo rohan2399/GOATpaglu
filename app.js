@@ -15,18 +15,18 @@ const products = [
         qikinkProductId: 62944074,
         qikinkVariations: {
             "White": {
-                "S": "v-9him1COBaVZV18ANNBQuubDQqgnW9ns==",   // Replace with your actual Variant SKUs
-                "M": "v-8Xk2mDEFgUyT17BNNCRvvcdEqhnZ8nt= ",   // from Qikink dashboard
-                "L": "v-7Jl3nEFGhVzU18COODSwwdeGrioA9ou= ",
-                "XL": "v-6Km4oGHIiWaV19DPPETxxefHsjqB0pv= ",
-                "XXL": "v-5Ln5pHIJjXbW20EQQFUyydfItkrC1qw= "
+                "S": "v-9him1COBaVZV18ANNBQuubDQqgnW9ns=",   // Replace with your actual Variant SKUs
+                "M": "v-8Xk2mDEFgUyT17BNNCRvvcdEqhnZ8nt=",   // from Qikink dashboard
+                "L": "v-7Jl3nEFGhVzU18COODSwwdeGrioA9ou=",
+                "XL": "v-6Km4oGHIiWaV19DPPETxxefHsjqB0pv=",
+                "XXL": "v-5Ln5pHIJjXbW20EQQFUyydfItkrC1qw="
             },
             "Black": {
-                "S": "v-4Mo6qIJKkYcX21FRRGVzzegJulrD2rx= ",   // Replace with your actual Variant SKUs
-                "M": "v-3Np7rJKLlZdY22GSsHW00fhKvmsE3sy= ",   // from Qikink dashboard
-                "L": "v-2Oq8sKLMmAeZ23HTtIX11giLwntF4tz= ",
-                "XL": "v-1Pr9tLMNnBfa24IUuJY22hjMxouG5u0= ",
-                "XXL": "v-0Qs0uMNOoCgb25JVvKZ33ikNypvH6v1= "
+                "S": "v-4Mo6qIJKkYcX21FRRGVzzegJulrD2rx=",   // Replace with your actual Variant SKUs
+                "M": "v-3Np7rJKLlZdY22GSsHW00fhKvmsE3sy=",   // from Qikink dashboard
+                "L": "v-2Oq8sKLMmAeZ23HTtIX11giLwntF4tz=",
+                "XL": "v-1Pr9tLMNnBfa24IUuJY22hjMxouG5u0=",
+                "XXL": "v-0Qs0uMNOoCgb25JVvKZ33ikNypvH6v1="
             }
         }
     }
