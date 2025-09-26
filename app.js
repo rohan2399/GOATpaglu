@@ -527,7 +527,7 @@ function openCheckoutModal() {
 
 async function handleQikinkCheckout(e) {
     e.preventDefault();
-    
+
     if (orderInProgress) {
         showNotification('Order already in progress...', 'warning');
         return;
@@ -567,32 +567,32 @@ async function handleQikinkCheckout(e) {
             }
         }
 
+        // Generate a shorter order number (max 15 chars)
+        const orderNumber = `ORD${Date.now().toString().slice(-10)}`;
+
         // Calculate totals
         const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         const shipping = subtotal > 500 ? 0 : 50;
         const total = subtotal + shipping;
 
-        // Prepare order data for YOUR REAL Qikink product
+        // Prepare order data for Qikink
         const orderData = {
-            order_number: `ORD_${Date.now()}`,
-            qikink_shipping: "1", // Let Qikink handle shipping
+            order_number: orderNumber,
+            qikink_shipping: "1",
             gateway: customerData.paymentMethod === 'cod' ? 'COD' : 'PREPAID',
             total_order_value: total.toString(),
             line_items: cart.map(item => {
-                // Get the correct SKU for this size/color combination
                 const qikinkSKU = getQikinkSKU(item.productId, item.size, item.color);
-                
                 if (!qikinkSKU) {
                     throw new Error(`Invalid size/color combination: ${item.color} ${item.size}`);
                 }
-
                 return {
-                    search_from_my_products: 1, // IMPORTANT: Use your existing product
+                    search_from_my_products: 1,
                     quantity: item.quantity.toString(),
-                    print_type_id: 17, // DTF printing
+                    print_type_id: 17,
                     price: item.price.toString(),
-                    sku: qikinkSKU, // Use the correct Qikink SKU
-                    designs: [] // Empty since using your existing product
+                    sku: qikinkSKU,
+                    designs: []
                 };
             }),
             shipping_address: {
@@ -608,14 +608,10 @@ async function handleQikinkCheckout(e) {
             }
         };
 
-        console.log('Sending order to Qikink:', orderData);
-
-        // Send order to your backend (which will send to Qikink)
+        // Send order to backend
         const response = await fetch(`${BACKEND_URL}/order`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderData)
         });
 
@@ -625,19 +621,11 @@ async function handleQikinkCheckout(e) {
         }
 
         const result = await response.json();
-        console.log('Qikink response:', result);
-
         if (result.success && result.data) {
-            // Order successful!
             showOrderConfirmation(result.data, customerData, total);
-            
-            // Clear cart
             cart = [];
             updateCartCount();
-            
-            // Close modals
             closeAllModals();
-            
             showNotification('Order placed successfully! Check your email for details.', 'success');
         } else {
             throw new Error(result.error || 'Order failed');
