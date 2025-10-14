@@ -45,24 +45,25 @@ const products = [
     qikinkProductId: 63172226,
     qikinkVariations: {
       "White": {
-        "XS": "UHd-Wh-XS",
-        "S":  "UHd-Wh-S",
-        "M":  "UHd-Wh-M",
-        "L":  "UHd-Wh-L",
-        "XL": "UHd-Wh-XL",
-        "XXL":"UHd-Wh-XXL",
-        "3XL":"UHd-Wh-3XL"
+            "XS": "UHd-Wh-XS",
+            "S":  "UHd-Wh-S",
+            "M":  "UHd-Wh-M",
+            "L":  "UHd-Wh-L",
+            "XL": "UHd-Wh-XL",
+            "XXL":"UHd-Wh-XXL",
+            "3XL":"UHd-Wh-3XL"
       },
       "Royal Blue": {
-        "XS": "UHd-Rb-XS",
-        "S":  "UHd-Rb-S",
-        "M":  "UHd-Rb-M",
-        "L":  "UHd-Rb-L",
-        "XL": "UHd-Rb-XL",
-        "XXL":"UHd-Rb-XXL",
-        "3XL":"UHd-Rb-3XL"
+            "XS": "UHd-Rb-XS",
+            "S":  "UHd-Rb-S",
+            "M":  "UHd-Rb-M",
+            "L":  "UHd-Rb-L",
+            "XL": "UHd-Rb-XL",
+            "XXL":"UHd-Rb-XXL",
+            "3XL":"UHd-Rb-3XL"
       }
-    },
+    }
+}
 ];
 
 // Helper function to get the correct Qikink SKU
