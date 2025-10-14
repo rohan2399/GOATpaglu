@@ -86,7 +86,7 @@ function getQikinkSKU(productId, size, color) {
 // ⚠️ IMPORTANT: Update this to your deployed backend URL
 const BACKEND_URL = 'https://goatpaglu-backend.onrender.com'; // Replace with your actual backend URL
 
-const categories = ["All", "Basic", "Graphic", "Logo", "Vintage", "Sports", "Art"];
+const categories = ["All", "Basic", "Hoodie","Graphic", "Logo", "Vintage", "Sports", "Art"];
 const sizeGuide = {
     "XS": "Chest: 30-32 inches",
     "S": "Chest: 34-36 inches",
