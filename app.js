@@ -46,7 +46,7 @@ const products = [
     qikinkVariations: {
       "White": {
             "XS": "UHd-Wh-XS",
-            "S":  "UHd-Wh-S",
+            "S":  "MVnHs-Wh-S",
             "M":  "UHd-Wh-M",
             "L":  "UHd-Wh-L",
             "XL": "UHd-Wh-XL",
