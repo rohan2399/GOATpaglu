@@ -608,6 +608,7 @@ async function handleQikinkCheckout(e) {
             
             const lineItem = {
                 search_from_my_products: 0,
+                print_type_id: 17,
                 quantity: item.quantity.toString(),
                 sku: sku,
                 price: item.price.toString()
