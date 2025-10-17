@@ -5,7 +5,7 @@ const products = [
         name: "Unisex Standard Crew T-Shirt",
         price: 799,
         originalPrice: 999,
-        image: "/public//images/Unisex Standard Crew T-Shirt.jpg",
+        image: "/images/UnisexStandardCrewTShirt.jpg",
         category: "Basic",
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["White", "Black"],
