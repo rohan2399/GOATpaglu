@@ -283,6 +283,8 @@ function showProductDetail(productId) {
     if (!modal) return;
 
     // Update modal content
+    document.getElementById('modalProductImage').src = currentProduct.image;
+    document.getElementById('modalProductImage').alt = currentProduct.name;
     document.getElementById('modalProductName').textContent = currentProduct.name;
     document.getElementById('modalProductDescription').textContent = currentProduct.description;
     document.getElementById('modalProductPrice').textContent = `₹${currentProduct.price}`;
