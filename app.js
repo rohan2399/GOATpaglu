@@ -36,7 +36,7 @@ const products = [
     price: 1500,
     originalPrice: 2000,
     category: "Hoodie",
-    image: "/images/UnisexHoodie.jpg",
+    image: "images/UnisexHoodie.jpg",
     description: "Classic unisex hoodie",
     sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     colors: ["White", "Royal Blue"],
