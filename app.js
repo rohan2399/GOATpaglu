@@ -669,10 +669,10 @@ async function handleQikinkCheckout(e) {
 
             // 2. Open Razorpay Checkout
             const options = {
-                key: 'YOUR_RAZORPAY_KEY_ID', // ⚠️ REPLACE WITH YOUR RAZORPAY KEY ID
+                key: 'rzp_live_RYD3GVaXJeKtz6', // ⚠️ REPLACE WITH YOUR RAZORPAY KEY ID
                 amount: amount,
                 currency: 'INR',
-                name: 'Your Store Name',
+                name: 'GoatPaglu',
                 description: 'Order Payment',
                 order_id: razorpayOrderData.order.id,
                 handler: async function (response) {
