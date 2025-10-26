@@ -669,7 +669,7 @@ async function handleQikinkCheckout(e) {
 
             // 2. Open Razorpay Checkout
             const options = {
-                key: 'rzp_live_RYD3GVaXJeKtz6', // ⚠️ REPLACE WITH YOUR RAZORPAY KEY ID
+                key: 'RAZORPAY_KEY_ID', // ⚠️ REPLACE WITH YOUR RAZORPAY KEY ID
                 amount: amount,
                 currency: 'INR',
                 name: 'GoatPaglu',
