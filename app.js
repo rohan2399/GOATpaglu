@@ -549,6 +549,8 @@ function openCheckoutModal() {
     modal.classList.remove('hidden');
 }
 
+// Updated handleQikinkCheckout function with Razorpay integration
+
 async function handleQikinkCheckout(e) {
     e.preventDefault();
 
@@ -565,7 +567,7 @@ async function handleQikinkCheckout(e) {
     orderInProgress = true;
     const submitBtn = document.querySelector('#checkoutForm button[type="submit"]');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Processing Order...';
+    submitBtn.textContent = 'Processing...';
     submitBtn.disabled = true;
 
     try {
@@ -582,6 +584,7 @@ async function handleQikinkCheckout(e) {
             paymentMethod: formData.get('paymentMethod')
         };
 
+        // Validate required fields
         const requiredFields = ['firstName', 'email', 'phone', 'address', 'city', 'state', 'zipCode'];
         for (let field of requiredFields) {
             if (!customerData[field]) {
@@ -594,38 +597,26 @@ async function handleQikinkCheckout(e) {
         const shipping = subtotal > 500 ? 0 : 50;
         const total = subtotal + shipping;
 
-        // 🔍 DEBUG: Log cart items before processing
-        console.log('🛒 Cart items before processing:', cart);
-
+        // Validate cart items and get SKUs
         const lineItems = cart.map(item => {
             const sku = getQikinkSKU(item.productId, item.size, item.color);
-            
-            // 🔍 DEBUG: Log SKU lookup for each item
-            console.log(`🔍 Looking up SKU for Product ${item.productId}, ${item.color} ${item.size}:`, sku);
             
             if (!sku) {
                 console.error(`❌ No SKU found for ${item.color} ${item.size}`);
                 throw new Error(`Invalid size/color combination: ${item.color} ${item.size}`);
             }
             
-            const lineItem = {
+            return {
                 search_from_my_products: 0,
                 print_type_id: 17,
                 quantity: item.quantity.toString(),
                 sku: sku,
                 price: item.price.toString()
             };
-            
-            // 🔍 DEBUG: Log final line item
-            console.log(`✅ Created line item:`, lineItem);
-            
-            return lineItem;
         });
 
-        // 🔍 DEBUG: Log all line items
-        console.log('📦 All line items:', lineItems);
-
-        const orderData = {
+        // Build order payload for Qikink
+        const orderPayload = {
             order_number: orderNumber,
             qikink_shipping: "1",
             gateway: customerData.paymentMethod === 'cod' ? 'COD' : 'PREPAID',
@@ -644,13 +635,116 @@ async function handleQikinkCheckout(e) {
             }
         };
 
-        // 🔍 DEBUG: Log final order data
-        console.log('🚀 Final order data being sent:', JSON.stringify(orderData, null, 2));
+        // RAZORPAY PAYMENT FLOW
+        if (customerData.paymentMethod === 'razorpay' || customerData.paymentMethod === 'online') {
+            console.log('💳 Initiating Razorpay payment...');
+            
+            const amount = total * 100; // Convert to paise
 
+            // 1. Create Razorpay order on backend
+            const razorpayOrderResponse = await fetch(`${BACKEND_URL}/razorpay/order`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    amount: amount,
+                    receipt: orderNumber,
+                    notes: {
+                        customer_name: `${customerData.firstName} ${customerData.lastName}`,
+                        customer_email: customerData.email
+                    }
+                })
+            });
+
+            if (!razorpayOrderResponse.ok) {
+                throw new Error('Failed to create Razorpay order');
+            }
+
+            const razorpayOrderData = await razorpayOrderResponse.json();
+            
+            if (!razorpayOrderData.success || !razorpayOrderData.order) {
+                throw new Error('Invalid Razorpay order response');
+            }
+
+            console.log('✅ Razorpay order created:', razorpayOrderData.order.id);
+
+            // 2. Open Razorpay Checkout
+            const options = {
+                key: 'YOUR_RAZORPAY_KEY_ID', // ⚠️ REPLACE WITH YOUR RAZORPAY KEY ID
+                amount: amount,
+                currency: 'INR',
+                name: 'Your Store Name',
+                description: 'Order Payment',
+                order_id: razorpayOrderData.order.id,
+                handler: async function (response) {
+                    console.log('💰 Payment successful, verifying...');
+                    
+                    try {
+                        // 3. Verify payment and place Qikink order
+                        const verifyResponse = await fetch(`${BACKEND_URL}/payment/verify-and-place`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                razorpay_order_id: response.razorpay_order_id,
+                                razorpay_payment_id: response.razorpay_payment_id,
+                                razorpay_signature: response.razorpay_signature,
+                                orderPayload: orderPayload
+                            })
+                        });
+
+                        const result = await verifyResponse.json();
+
+                        if (result.success && result.data) {
+                            console.log('✅ Order placed successfully');
+                            showOrderConfirmation(result.data, customerData, total, response.razorpay_payment_id);
+                            cart = [];
+                            updateCartCount();
+                            closeAllModals();
+                            showNotification('Payment successful! Order placed with Qikink.', 'success');
+                        } else {
+                            throw new Error(result.error || 'Order placement failed after payment');
+                        }
+                    } catch (verifyError) {
+                        console.error('❌ Verification/order error:', verifyError);
+                        showNotification(`Payment completed but order failed: ${verifyError.message}`, 'error');
+                    } finally {
+                        orderInProgress = false;
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                },
+                prefill: {
+                    name: `${customerData.firstName} ${customerData.lastName || ''}`,
+                    email: customerData.email,
+                    contact: customerData.phone
+                },
+                theme: {
+                    color: '#3399cc'
+                },
+                modal: {
+                    ondismiss: function() {
+                        console.log('⚠️ Payment cancelled by user');
+                        orderInProgress = false;
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        showNotification('Payment cancelled', 'warning');
+                    }
+                }
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+            
+            // Don't reset the button state here - it will be reset in handler or ondismiss
+            return;
+        }
+
+        // COD PAYMENT FLOW (unchanged)
+        console.log('📦 Processing COD order...');
+        
         const response = await fetch(`${BACKEND_URL}/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderData)
+            body: JSON.stringify(orderPayload)
         });
 
         if (!response.ok) {
@@ -660,14 +754,14 @@ async function handleQikinkCheckout(e) {
         }
 
         const result = await response.json();
-        console.log('✅ Backend response:', result);
+        console.log('✅ COD order response:', result);
         
         if (result.success && result.data) {
             showOrderConfirmation(result.data, customerData, total);
             cart = [];
             updateCartCount();
             closeAllModals();
-            showNotification('Order placed successfully! Check your email for details.', 'success');
+            showNotification('COD order placed successfully!', 'success');
         } else {
             throw new Error(result.error || 'Order failed');
         }
@@ -675,17 +769,19 @@ async function handleQikinkCheckout(e) {
         console.error('❌ Checkout error:', error);
         showNotification(`Order failed: ${error.message}`, 'error');
     } finally {
+        // Only reset if not Razorpay (Razorpay resets in its own handlers)
+        if (!orderInProgress) {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
         orderInProgress = false;
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
     }
 }
 
-
-function showOrderConfirmation(orderResult, customerData, total) {
+// Updated showOrderConfirmation to include payment ID
+function showOrderConfirmation(orderResult, customerData, total, paymentId = null) {
     const modal = document.getElementById('orderConfirmationModal');
     if (!modal) {
-        // Create confirmation modal if it doesn't exist
         const modalHTML = `
             <div id="orderConfirmationModal" class="modal hidden">
                 <div class="modal__overlay">
@@ -713,6 +809,7 @@ function showOrderConfirmation(orderResult, customerData, total) {
         
         <div class="order-details">
             <p><strong>Order ID:</strong> ${orderResult.order_id || 'Processing...'}</p>
+            ${paymentId ? `<p><strong>Payment ID:</strong> ${paymentId}</p>` : ''}
             <p><strong>Total Amount:</strong> ₹${total}</p>
             <p><strong>Customer:</strong> ${customerData.firstName} ${customerData.lastName}</p>
             <p><strong>Email:</strong> ${customerData.email}</p>
