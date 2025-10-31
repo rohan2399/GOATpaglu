@@ -86,6 +86,25 @@ function getQikinkSKU(productId, size, color) {
 // ⚠️ IMPORTANT: Update this to your deployed backend URL
 const BACKEND_URL = 'https://goatpaglu-backend.onrender.com'; // Replace with your actual backend URL
 
+
+
+// Wake up backend when page loads
+function wakeUpBackend() {
+  fetch(`${BACKEND_URL}/health`, {
+    method: 'GET',
+    signal: AbortSignal.timeout(5000) // 5 second timeout to avoid hanging
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('✅ Backend awakened successfully');
+    }
+  })
+  .catch(error => {
+    console.warn('⚠️ Backend wake-up call failed (may still be starting):', error.message);
+  });
+}
+// wakeup close
+
 const categories = ["All", "Basic", "Hoodie","Graphic", "Logo", "Vintage", "Sports", "Art"];
 const sizeGuide = {
     "XS": "Chest: 30-32 inches",
@@ -113,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeApp() {
+    wakeUpBackend();// Wake up the backend immediately
     updateCartCount();
     showPage('home');
     updateNavigation('home');
