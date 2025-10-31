@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeApp() {
-    wakeUpBackend();// Wake up the backend immediately
+   // wakeUpBackend();// Wake up the backend immediately
     updateCartCount();
     showPage('home');
     updateNavigation('home');
