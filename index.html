@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>TeeShop - Premium Custom T-Shirts</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="TeeShop Custom T-Shirts Qikink" name="keywords">
+        <meta content="High-quality custom t-shirts with fast delivery." name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            .page {
+                display: none;
+            }
+            .page.active {
+                display: block;
+            }
+            /* Original Modal Styles preserved for confirmation/alerts if needed */
+            .modal.hidden { display: none; }
+            .modal__overlay {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.5); z-index: 9999;
+                display: flex; justify-content: center; align-items: center;
+            }
+            .modal__content {
+                background: white; padding: 20px; border-radius: 5px; max-width: 500px; width: 100%;
+            }
+            .modal__close { float: right; cursor: pointer; border: none; background: none; font-size: 20px; }
+        </style>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    </head>
+
+    <body>
+        <!-- Top bar Start -->
+        <div class="top-bar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <i class="fa fa-envelope"></i>
+                        support@goatpaglu.in
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fa fa-phone-alt"></i>
+                        +91 99581 76886
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top bar End -->
+        
+        <!-- Nav Bar Start -->
+        <div class="nav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto" id="mainNav">
+                            <a href="#" class="nav-item nav-link active" data-page="home">Home</a>
+                            <a href="#" class="nav-item nav-link" data-page="shop">Products</a>
+                            <a href="#" class="nav-item nav-link" data-page="cart">Cart</a>
+                            <a href="#" class="nav-item nav-link" data-page="contact">Contact Us</a>
+                        </div>
+                        <div class="navbar-nav ml-auto">
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">Login</a>
+                                    <a href="#" class="dropdown-item">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Nav Bar End -->      
+        
+        <!-- Bottom Bar Start -->
+        <div class="bottom-bar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="#" data-page="home">
+                                <h1>GOATpaglu</h1>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="search">
+                            <input type="text" id="globalSearchInput" placeholder="Search">
+                            <button id="globalSearchBtn"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="user">
+                            <a href="#" class="btn wishlist">
+                                <i class="fa fa-heart"></i>
+                                <span>(0)</span>
+                            </a>
+                            <a href="#" class="btn cart" data-page="cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span id="cartCount">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Bar End -->       
+        
+        <!-- ==================== HOME PAGE ==================== -->
+        <div id="homePage" class="page active">
+            <!-- Main Slider Start -->
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <nav class="navbar bg-light">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-page="shop"><i class="fa fa-tshirt"></i>All T-Shirts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-page="shop"><i class="fa fa-fire"></i>Best Selling</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-page="shop"><i class="fa fa-plus-square"></i>New Arrivals</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="header-slider normal-slider">
+                                <div class="header-slider-item">
+                                    <img src="img/slider-1.jpg" alt="Slider Image" />
+                                    <div class="header-slider-caption">
+                                        <p>Premium Custom T-Shirts</p>
+                                        <a class="btn" href="#" data-page="shop"><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                                    </div>
+                                </div>
+                                <div class="header-slider-item">
+                                    <img src="img/slider-2.jpg" alt="Slider Image" />
+                                    <div class="header-slider-caption">
+                                        <p>Design Your Own Style</p>
+                                        <a class="btn" href="#" data-page="shop"><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="header-img">
+                                <div class="img-item">
+                                    <img src="img/category-1.jpg" />
+                                    <a class="img-text" href="#" data-page="shop">
+                                        <p>Men's Fashion</p>
+                                    </a>
+                                </div>
+                                <div class="img-item">
+                                    <img src="img/category-2.jpg" />
+                                    <a class="img-text" href="#" data-page="shop">
+                                        <p>Women's Fashion</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Main Slider End -->      
+            
+            <!-- Feature Start-->
+            <div class="feature">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-6 feature-col">
+                            <div class="feature-content">
+                                <i class="fab fa-cc-mastercard"></i>
+                                <h2>Secure Payment</h2>
+                                <p>Razorpay Integration</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 feature-col">
+                            <div class="feature-content">
+                                <i class="fa fa-truck"></i>
+                                <h2>Fast Delivery</h2>
+                                <p>Powered by Qikink</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 feature-col">
+                            <div class="feature-content">
+                                <i class="fa fa-sync-alt"></i>
+                                <h2>Easy Returns</h2>
+                                <p>Hassle-free policy</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 feature-col">
+                            <div class="feature-content">
+                                <i class="fa fa-comments"></i>
+                                <h2>24/7 Support</h2>
+                                <p>We are here to help</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature End-->      
+            
+            <!-- Featured Product Start -->
+            <div class="featured-product product">
+                <div class="container-fluid">
+                    <div class="section-header">
+                        <h1>Featured Products</h1>
+                    </div>
+                    <div class="row align-items-center product-slider product-slider-4" id="featuredProducts">
+                        <!-- Featured products content will be replaced by app.js or static content -->
+                        <div class="col-lg-3">
+                            <div class="product-item">
+                                <div class="product-title">
+                                    <a href="#">Unisex Standard T-Shirt</a>
+                                    <div class="ratting">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="product-image">
+                                    <a href="#" onclick="showProductDetail(1)">
+                                        <img src="img/UnisexStandardCrewTShirt.jpg" alt="Product Image">
+                                    </a>
+                                    <div class="product-action">
+                                        <a href="#" onclick="quickAddToCart(1)"><i class="fa fa-cart-plus"></i></a>
+                                        <a href="#" onclick="showProductDetail(1)"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-price">
+                                    <h3><span>₹</span>799</h3>
+                                    <a class="btn" href="#" onclick="quickAddToCart(1)"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-lg-3">
+                            <div class="product-item">
+                                <div class="product-title">
+                                    <a href="#">Unisex Hoodie</a>
+                                    <div class="ratting">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="product-image">
+                                    <a href="#" onclick="showProductDetail(2)">
+                                        <img src="img/UnisexHoodie.jpg" alt="Product Image">
+                                    </a>
+                                    <div class="product-action">
+                                        <a href="#" onclick="quickAddToCart(2)"><i class="fa fa-cart-plus"></i></a>
+                                        <a href="#" onclick="showProductDetail(2)"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-price">
+                                    <h3><span>₹</span>1500</h3>
+                                    <a class="btn" href="#" onclick="quickAddToCart(2)"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more static featured products if needed to maintain slider structure -->
+                    </div>
+                </div>
+            </div>
+            <!-- Featured Product End -->       
+        </div>
+
+        <!-- ==================== SHOP PAGE ==================== -->
+        <div id="shopPage" class="page">
+            <!-- Breadcrumb Start -->
+            <div class="breadcrumb-wrap">
+                <div class="container-fluid">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" data-page="home">Home</a></li>
+                        <li class="breadcrumb-item active">Products</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Breadcrumb End -->
+            
+            <!-- Product List Start -->
+            <div class="product-view">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="product-view-top">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="product-search">
+                                                    <input type="email" id="shopSearchInput" placeholder="Search">
+                                                    <button><i class="fa fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="product-short">
+                                                    <div class="dropdown">
+                                                        <div class="dropdown-toggle" data-toggle="dropdown">Product sort by</div>
+                                                        <div class="dropdown-menu dropdown-menu-right" id="sortFilter">
+                                                            <a href="#" class="dropdown-item" data-sort="featured">Featured</a>
+                                                            <a href="#" class="dropdown-item" data-sort="price-low">Price Low to High</a>
+                                                            <a href="#" class="dropdown-item" data-sort="price-high">Price High to Low</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                 <!-- Empty for now -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row" id="shopProducts" style="width: 100%; margin: 0;">
+                                    <!-- Shop Products Loaded Here by app.js -->
+                                </div>
+                                
+                            </div>
+                        </div>           
+                        
+                        <!-- Side Bar Start -->
+                        <div class="col-lg-4 sidebar">
+                            <div class="sidebar-widget category">
+                                <h2 class="title">Category</h2>
+                                <nav class="navbar bg-light">
+                                    <ul class="navbar-nav" id="categoryFilter">
+                                        <!-- Categories loaded here -->
+                                        <li class="nav-item"><a class="nav-link" href="#">All</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Side Bar End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Product List End -->  
+        </div>
+
+        <!-- ==================== PRODUCT DETAIL PAGE ==================== -->
+        <div id="productDetailPage" class="page">
+             <!-- Breadcrumb Start -->
+            <div class="breadcrumb-wrap">
+                <div class="container-fluid">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" data-page="home">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" data-page="shop">Products</a></li>
+                        <li class="breadcrumb-item active">Product Detail</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Breadcrumb End -->
+            
+            <!-- Product Detail Start -->
+            <div class="product-detail">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="product-detail-top">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="product-slider-single-x">
+                                            <img id="detailImage" src="" alt="Product Image" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="product-content">
+                                            <div class="title"><h2 id="detailName">Product Name</h2></div>
+                                            <div class="ratting" id="detailRating">
+                                                <!-- Stars -->
+                                            </div>
+                                            <div class="price">
+                                                <h4>Price:</h4>
+                                                <p><span id="detailPrice">₹99</span> <span id="detailOriginalPrice">₹149</span></p>
+                                            </div>
+                                            <div class="quantity">
+                                                <h4>Quantity:</h4>
+                                                <div class="qty">
+                                                    <button class="btn-minus" id="detailDecreaseQty"><i class="fa fa-minus"></i></button>
+                                                    <input type="text" value="1" id="detailQuantity">
+                                                    <button class="btn-plus" id="detailIncreaseQty"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="p-size">
+                                                <h4>Size:</h4>
+                                                <div class="btn-group btn-group-sm" id="detailSizeOptions">
+                                                    <!-- Sizes -->
+                                                </div> 
+                                            </div>
+                                            <div class="p-color">
+                                                <h4>Color:</h4>
+                                                <div class="btn-group btn-group-sm" id="detailColorOptions">
+                                                    <!-- Colors -->
+                                                </div> 
+                                            </div>
+                                            <div class="action">
+                                                <a class="btn" href="#" id="detailAddToCart"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
+                                            </div>
+                                            <div class="description" style="margin-top: 20px;">
+                                                <p id="detailDescription">Description here.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Detail End -->
+        </div>
+
+        <!-- ==================== CART PAGE ==================== -->
+        <div id="cartPage" class="page">
+            <div class="breadcrumb-wrap">
+                <div class="container-fluid">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" data-page="home">Home</a></li>
+                        <li class="breadcrumb-item active">Cart</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cart-page">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="cart-page-inner">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                                <th>Remove</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="align-middle" id="cartTableBody">
+                                            <!-- Cart Items populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="cart-page-inner">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="cart-summary">
+                                            <div class="cart-content" id="cartTotalSummary">
+                                                <h1>Cart Summary</h1>
+                                                <p>Sub Total<span>₹0</span></p>
+                                                <p>Shipping Cost<span>₹0</span></p>
+                                                <h2>Grand Total<span>₹0</span></h2>
+                                            </div>
+                                            <div class="cart-btn">
+                                                <button onclick="showPage('shop')">Update Cart</button>
+                                                <button data-page="checkout">Checkout</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== CHECKOUT PAGE ==================== -->
+        <div id="checkoutPage" class="page">
+             <div class="breadcrumb-wrap">
+                <div class="container-fluid">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" data-page="home">Home</a></li>
+                        <li class="breadcrumb-item active">Checkout</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="checkout">
+                <div class="container-fluid"> 
+                    <form id="newCheckoutForm">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="checkout-inner">
+                                <div class="billing-address">
+                                    <h2>Shipping Address</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>First Name</label>
+                                            <input class="form-control" type="text" name="firstName" required placeholder="First Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Last Name</label>
+                                            <input class="form-control" type="text" name="lastName" placeholder="Last Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>E-mail</label>
+                                            <input class="form-control" type="email" name="email" required placeholder="E-mail">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Mobile No</label>
+                                            <input class="form-control" type="tel" name="phone" required placeholder="Mobile No">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Address</label>
+                                            <input class="form-control" type="text" name="address" required placeholder="Address">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>City</label>
+                                            <input class="form-control" type="text" name="city" required placeholder="City">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>State</label>
+                                            <input class="form-control" type="text" name="state" required placeholder="State">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>ZIP Code</label>
+                                            <input class="form-control" type="text" name="zipCode" required placeholder="ZIP Code">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="checkout-inner">
+                                <div class="checkout-summary" id="checkoutOrderSummary">
+                                    <h1>Cart Total</h1>
+                                    <p class="sub-total">Sub Total<span>₹0</span></p>
+                                    <p class="ship-cost">Shipping Cost<span>₹0</span></p>
+                                    <h2>Grand Total<span>₹0</span></h2>
+                                </div>
+
+                                <div class="checkout-payment">
+                                    <div class="payment-methods">
+                                        <h1>Payment Methods</h1>
+                                        <div class="payment-method">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="payment-cod" name="paymentMethod" value="cod" checked>
+                                                <label class="custom-control-label" for="payment-cod">Cash on Delivery</label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="payment-razorpay" name="paymentMethod" value="razorpay">
+                                                <label class="custom-control-label" for="payment-razorpay">Online Payment (Razorpay)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkout-btn">
+                                        <button type="submit">Place Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== CONTACT PAGE ==================== -->
+        <div id="contactPage" class="page">
+            <div class="breadcrumb-wrap">
+                <div class="container-fluid">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" data-page="home">Home</a></li>
+                        <li class="breadcrumb-item active">Contact</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="contact">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="contact-info">
+                                <h2>Our Office</h2>
+                                <h3><i class="fa fa-map-marker"></i>Dwarka, Delhi, India</h3>
+                                <h3><i class="fa fa-envelope"></i>support@goatpaglu.com</h3>
+                                <h3><i class="fa fa-phone"></i>+91 99581 76886</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Get in Touch</h2>
+                            <div class="contact-info">
+                                <p><i class="fa fa-map-marker"></i>Dwarka, Delhi, India</p>
+                                <p><i class="fa fa-envelope"></i>support@goatpaglu.com</p>
+                                <p><i class="fa fa-phone"></i>+91 99581 76886</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Follow Us</h2>
+                            <div class="contact-info">
+                                <div class="social">
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Company Info</h2>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row payment align-items-center">
+                    <div class="col-md-6">
+                        <div class="payment-method">
+                            <h2>We Accept:</h2>
+                            <img src="img/payment-method.png" alt="Payment Method" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="payment-security">
+                            <h2>Secured By:</h2>
+                            <img src="img/godaddy.svg" alt="Payment Security" />
+                            <img src="img/norton.svg" alt="Payment Security" />
+                            <img src="img/ssl.svg" alt="Payment Security" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 copyright">
+                        <p>Copyright &copy; <a href="#">GOATpaglu</a>. All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->       
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+        
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        
+        <!-- App Script -->
+        <script src="app.js"></script>
+    </body>
+</html>
