@@ -64,7 +64,31 @@ const products = [
             "3XL":"UHd-Rb-3XL"
       }
     }
-}
+},
+{
+        id: 3,
+        name: "Cristiano Ronaldo ManUtd",
+        price: 1700,
+        originalPrice: 3000,
+        image: "img/CristainoRonaldo.jpg",
+        category: "Basic",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        colors: ["White"],
+        description: "Unisex Oversized Hoodie with 400 GSM",
+        rating: 4.8,
+        reviews: 15,
+        qikinkProductId: 63321978,
+        qikinkVariations: {
+            "White": {
+                        "S": "UOsHd-Wh-S",
+                        "M": "UOsHd-Wh-M", 
+                        "L": "UOsHd-Wh-L",
+                        "XL": "UOsHd-Wh-XL",
+                        "XXL": "UOsHd-Wh-XXL",
+                        "XXL": "UOsHd-Wh-XXXL"
+            }
+        }
+    }
 ];
 
 // Helper function to get the correct Qikink SKU
