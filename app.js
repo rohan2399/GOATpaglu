@@ -7,6 +7,12 @@ const products = [
         price: 799,
         originalPrice: 999,
         image: "img/UnisexStandardCrewTShirt.jpg",
+        // ADD THIS NEW SECTION:
+        images: [
+            "img/UnisexStandardCrewTShirt.jpg",      // Front
+            "img/UnisexStandardCrewTShirt.jpg", // Back
+            "img/UnisexStandardCrewTShirt.jpg"  // Side
+        ],
         category: "Basic",
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["White", "Black"],
@@ -330,6 +336,47 @@ function showProductDetail(productId) {
     // Add Listeners for Size/Color selection
     setupDetailOptionsListeners();
 
+
+    // ... (Existing code for name, price, description, etc.) ...
+    
+    // 1. Set the Main Image
+    const mainImage = document.getElementById('detailImage');
+    mainImage.src = currentProduct.image; 
+
+    // 2. NEW CODE: Generate Thumbnails
+    const thumbnailContainer = document.getElementById('detailThumbnails');
+    
+    // Clear previous thumbnails
+    if(thumbnailContainer) thumbnailContainer.innerHTML = '';
+
+    // Check if the product has multiple images
+    if (thumbnailContainer && currentProduct.images && currentProduct.images.length > 0) {
+        
+        currentProduct.images.forEach(imgSrc => {
+            // Create a wrapper div for the thumbnail
+            const thumbWrapper = document.createElement('div');
+            thumbWrapper.className = 'col-3 p-1'; // Bootstrap class for spacing
+            
+            // Create the image element
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.style.width = '100%';
+            img.style.cursor = 'pointer';
+            img.style.border = '1px solid #ddd';
+            
+            // Add Click Event: Change main image when clicked
+            img.onclick = function() {
+                mainImage.src = imgSrc;
+            };
+
+            thumbWrapper.appendChild(img);
+            thumbnailContainer.appendChild(thumbWrapper);
+        });
+    }
+    
+    // ... (Rest of existing code for ratings, size, color) ...
+
+    
     showPage('productDetail');
 }
 
