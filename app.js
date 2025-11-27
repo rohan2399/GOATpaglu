@@ -78,9 +78,8 @@ const products = [
         originalPrice: 3000,
         image: "img/CristainoRonaldo.jpg",
         images: [
-            "img/CristainoRonaldo.jpg",      // Front
-            "img/UnisexStandardCrewTShirt.jpg", // Back
-            "img/UnisexHoodie.jpg"  // Side
+            "img/CristainoRonaldofront.jpg",      // Front
+            "img/CristainoRonaldo.jpg",      // Back
         ],
         category: "Basic",
         sizes: ["S", "M", "L", "XL", "XXL"],
