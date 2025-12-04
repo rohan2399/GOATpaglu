@@ -2393,4 +2393,44 @@ h2 {
     .footer-bottom .template-by {
         text-align: center; 
     } 
+
+}
+
+
+
+/* --- Fix Slider Arrow Alignment --- */
+
+/* 1. Target the arrows specifically within the header slider */
+.header-slider .slick-prev,
+.header-slider .slick-next {
+    position: absolute;
+    top: 50%;                 /* Center vertically */
+    transform: translateY(-50%); /* Perfect vertical center */
+    z-index: 100;             /* Ensure they are above the image */
+    width: 45px;              /* Fixed width */
+    height: 45px;             /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    color: #ffffff;           /* White arrow color */
+    border-radius: 4px;       /* Optional: rounded corners */
+    transition: all 0.3s;
+}
+
+/* 2. Move Left Arrow INSIDE the image */
+.header-slider .slick-prev {
+    left: 20px;               /* Push 20px inward from the left edge */
+}
+
+/* 3. Move Right Arrow INSIDE the image */
+.header-slider .slick-next {
+    right: 20px;              /* Push 20px inward from the right edge */
+}
+
+/* 4. Hover Effect (Consistent Red) */
+.header-slider .slick-prev:hover,
+.header-slider .slick-next:hover {
+    background: #FF6F61;      /* Your theme red color */
+    color: #ffffff;
 }
