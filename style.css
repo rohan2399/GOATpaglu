@@ -2398,39 +2398,50 @@ h2 {
 
 
 
-/* --- Fix Slider Arrow Alignment --- */
+/* --- Fix Slider Arrow Alignment (Updated with Overrides) --- */
 
-/* 1. Target the arrows specifically within the header slider */
+/* 1. Target arrows with !important to override .normal-slider styles */
 .header-slider .slick-prev,
 .header-slider .slick-next {
-    position: absolute;
-    top: 50%;                 /* Center vertically */
-    transform: translateY(-50%); /* Perfect vertical center */
-    z-index: 100;             /* Ensure they are above the image */
-    width: 45px;              /* Fixed width */
-    height: 45px;             /* Fixed height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
-    color: #ffffff;           /* White arrow color */
-    border-radius: 4px;       /* Optional: rounded corners */
-    transition: all 0.3s;
+    position: absolute !important;
+    top: 50% !important;                 /* Center vertically */
+    transform: translateY(-50%) !important; /* Perfect vertical center */
+    z-index: 100 !important;             /* Ensure they are above the image */
+    width: 45px !important;              /* Fixed width */
+    height: 45px !important;             /* Fixed height */
+    display: flex !important;            /* Ensure flexbox centers the icon */
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0, 0, 0, 0.5) !important; /* Semi-transparent background */
+    color: #ffffff !important;           /* White icon */
+    border-radius: 4px !important;
+    opacity: 1 !important;               /* Force them to be visible always, not just on hover */
+    transition: all 0.3s !important;
 }
 
-/* 2. Move Left Arrow INSIDE the image */
-.header-slider .slick-prev {
-    left: 20px;               /* Push 20px inward from the left edge */
+/* 2. Force Left Arrow Position (covering both normal and hover states) */
+.header-slider .slick-prev,
+.header-slider:hover .slick-prev {
+    left: 20px !important;               /* Push 20px inward */
 }
 
-/* 3. Move Right Arrow INSIDE the image */
-.header-slider .slick-next {
-    right: 20px;              /* Push 20px inward from the right edge */
+/* 3. Force Right Arrow Position (covering both normal and hover states) */
+.header-slider .slick-next,
+.header-slider:hover .slick-next {
+    right: 20px !important;              /* Push 20px inward */
 }
 
-/* 4. Hover Effect (Consistent Red) */
+/* 4. Hover Effect (Red Background) */
 .header-slider .slick-prev:hover,
 .header-slider .slick-next:hover {
-    background: #FF6F61;      /* Your theme red color */
-    color: #ffffff;
+    background: #FF6F61 !important;      /* Theme Red */
+    color: #ffffff !important;
+}
+
+/* 5. Fix Icon Centering explicitly */
+.header-slider .slick-prev::before,
+.header-slider .slick-next::before {
+    font-size: 20px !important;          /* Adjust icon size if needed */
+    line-height: 1 !important;
+    opacity: 1 !important;
 }
