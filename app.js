@@ -89,20 +89,37 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeApp() {
     updateCartCount();
     
-    // HISTORY API FIX: Check URL hash on load to open correct page
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-        showPage(hash, false); // Don't push state on initial load
+    // REFRESH FIX: Check if URL contains a product ID
+    const hash = window.location.hash;
+    
+    if (hash.includes('product?id=')) {
+        // Extract ID from #product?id=1
+        const idPart = hash.split('id=')[1];
+        const id = parseInt(idPart);
+        if (id) {
+            // Load the specific product, don't push state since we are already here
+            showProductDetail(id, false); 
+            return;
+        }
+    }
+    
+    // Fallback for normal pages
+    const pageId = hash.replace('#', '');
+    if (pageId && document.getElementById(pageId + 'Page')) {
+        showPage(pageId, false);
     } else {
-        showPage('home', false); // Default to home
+        showPage('home', false); 
     }
 }
 
 function setupEventListeners() {
-    // HISTORY API FIX: Listen for Back/Forward button clicks
+    // REFRESH FIX: Handle Back/Forward buttons properly
     window.addEventListener('popstate', function(event) {
-        if (event.state && event.state.page) {
-            showPage(event.state.page, false); // Don't push state, just show it
+        if (event.state && event.state.page === 'productDetail' && event.state.id) {
+            // If going back to a product, reload that product data
+            showProductDetail(event.state.id, false);
+        } else if (event.state && event.state.page) {
+            showPage(event.state.page, false);
         } else {
             showPage('home', false);
         }
@@ -114,7 +131,7 @@ function setupEventListeners() {
         if (link) {
             e.preventDefault();
             const page = link.getAttribute('data-page');
-            showPage(page); // Defaults to pushing state
+            showPage(page);
             return;
         }
     });
@@ -187,7 +204,6 @@ function setupEventListeners() {
     }
 }
 
-// HISTORY API FIX: Added addToHistory parameter
 function showPage(pageId, addToHistory = true) {
     const allPages = document.querySelectorAll('.page');
     allPages.forEach(page => {
@@ -199,12 +215,10 @@ function showPage(pageId, addToHistory = true) {
         targetPage.classList.add('active');
         window.scrollTo(0, 0);
         
-        // Update browser URL and History
         if (addToHistory) {
             history.pushState({ page: pageId }, null, `#${pageId}`);
         }
         
-        // Update Navigation Active State
         updateNavigation(pageId);
     }
     
@@ -237,7 +251,6 @@ function loadShopProducts() {
     container.innerHTML = filteredProducts.map(product => createProductCard(product)).join('');
 }
 
-// REDIRECT FIX: Updated onclick events to strictly use showProductDetail
 function createProductCard(product) {
     return `
     <div class="col-md-4">
@@ -278,8 +291,8 @@ function getStarRating(rating) {
     return stars;
 }
 
-// Product Detail Functions
-function showProductDetail(productId) {
+// REFRESH FIX: Added pushHistory parameter
+function showProductDetail(productId, pushHistory = true) {
     currentProduct = products.find(p => p.id === productId);
     if (!currentProduct) return;
 
@@ -335,7 +348,21 @@ function showProductDetail(productId) {
     ).join('');
     
     setupDetailOptionsListeners();
-    showPage('productDetail'); // Will automatically push history state
+
+    // Manually show the page div
+    const allPages = document.querySelectorAll('.page');
+    allPages.forEach(page => page.classList.remove('active'));
+    document.getElementById('productDetailPage').classList.add('active');
+    window.scrollTo(0, 0);
+
+    // REFRESH FIX: Save the ID in the URL
+    if (pushHistory) {
+        history.pushState(
+            { page: 'productDetail', id: productId }, 
+            null, 
+            `#product?id=${productId}`
+        );
+    }
 }
 
 function setupDetailOptionsListeners() {
