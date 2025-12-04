@@ -136,7 +136,7 @@ h2 {
 }
 
 .normal-slider .slick-next {
-    right: 55px;
+    right: 40px;
 }
 
 .normal-slider.slick-slider:hover .slick-prev {
@@ -2450,3 +2450,4 @@ h2 {
     width: 100% !important;
     object-fit: cover !important;
 }
+
