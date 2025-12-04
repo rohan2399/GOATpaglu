@@ -2397,10 +2397,9 @@ h2 {
 }
 
 
-
 /* --- Fix Slider Arrow Alignment (Updated with Overrides) --- */
 
-/* 1. Target arrows with !important to override .normal-slider styles */
+/* 1. FORCE the arrows to be visible and positioned correctly */
 .header-slider .slick-prev,
 .header-slider .slick-next {
     position: absolute !important;
@@ -2409,23 +2408,23 @@ h2 {
     z-index: 100 !important;             /* Ensure they are above the image */
     width: 45px !important;              /* Fixed width */
     height: 45px !important;             /* Fixed height */
-    display: flex !important;            /* Ensure flexbox centers the icon */
+    display: flex !important;            /* Flexbox to center the icon */
     align-items: center !important;
     justify-content: center !important;
     background: rgba(0, 0, 0, 0.5) !important; /* Semi-transparent background */
     color: #ffffff !important;           /* White icon */
     border-radius: 4px !important;
-    opacity: 1 !important;               /* Force them to be visible always, not just on hover */
+    opacity: 1 !important;               /* Force them to be visible always */
     transition: all 0.3s !important;
 }
 
-/* 2. Force Left Arrow Position (covering both normal and hover states) */
+/* 2. Position Left Arrow INSIDE the image */
 .header-slider .slick-prev,
 .header-slider:hover .slick-prev {
     left: 20px !important;               /* Push 20px inward */
 }
 
-/* 3. Force Right Arrow Position (covering both normal and hover states) */
+/* 3. Position Right Arrow INSIDE the image */
 .header-slider .slick-next,
 .header-slider:hover .slick-next {
     right: 20px !important;              /* Push 20px inward */
@@ -2438,10 +2437,16 @@ h2 {
     color: #ffffff !important;
 }
 
-/* 5. Fix Icon Centering explicitly */
+/* 5. Fix Icon Size */
 .header-slider .slick-prev::before,
 .header-slider .slick-next::before {
-    font-size: 20px !important;          /* Adjust icon size if needed */
+    font-size: 20px !important;
     line-height: 1 !important;
     opacity: 1 !important;
+}
+
+/* 6. FORCE Image to fill the slider width (Fix for different image sizes) */
+.header-slider .header-slider-item img {
+    width: 100% !important;
+    object-fit: cover !important;
 }
