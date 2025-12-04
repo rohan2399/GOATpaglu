@@ -1,4 +1,3 @@
-
 // Static product array with REAL Qikink product data
 const products = [
     {
@@ -7,11 +6,10 @@ const products = [
         price: 799,
         originalPrice: 999,
         image: "img/UnisexStandardCrewTShirt.jpg",
-        // ADD THIS NEW SECTION:
         images: [
-            "img/UnisexStandardCrewTShirt.jpg",      // Front
-            "img/UnisexStandardCrewTShirt.jpg", // Back
-            "img/UnisexStandardCrewTShirt.jpg"  // Side
+            "img/UnisexStandardCrewTShirt.jpg", 
+            "img/UnisexStandardCrewTShirt.jpg", 
+            "img/UnisexStandardCrewTShirt.jpg"
         ],
         category: "Basic",
         sizes: ["S", "M", "L", "XL", "XXL"],
@@ -21,66 +19,36 @@ const products = [
         reviews: 15,
         qikinkProductId: 62944074,
         qikinkVariations: {
-            "White": {
-                        "S": "MStRnHs-Wh-S",
-                        "M": "MStRnHs-Wh-M", 
-                        "L": "MStRnHs-Wh-L",
-                        "XL": "MStRnHs-Wh-XL",
-                        "XXL": "MStRnHs-Wh-XXL"
-            },
-            "Black": {
-                        "S": "MStRnHs-Bk-S",
-                        "M": "MStRnHs-Bk-M",
-                        "L": "MStRnHs-Bk-L", 
-                        "XL": "MStRnHs-Bk-XL",
-                        "XXL": "MStRnHs-Bk-XXL"
-            }
+            "White": { "S": "MStRnHs-Wh-S", "M": "MStRnHs-Wh-M", "L": "MStRnHs-Wh-L", "XL": "MStRnHs-Wh-XL", "XXL": "MStRnHs-Wh-XXL" },
+            "Black": { "S": "MStRnHs-Bk-S", "M": "MStRnHs-Bk-M", "L": "MStRnHs-Bk-L", "XL": "MStRnHs-Bk-XL", "XXL": "MStRnHs-Bk-XXL" }
         }
     },
-{
-    id: 2,
-    name: "Unisex Hoodie",
-    price: 1500,
-    originalPrice: 2000,
-    category: "Hoodie",
-    image: "img/UnisexHoodie.jpg",
-    description: "Classic unisex hoodie",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
-    colors: ["White", "Royal Blue"],
-    rating: 4.7,
-    reviews: 12,
-    qikinkProductId: 63172226,
-    qikinkVariations: {
-      "White": {
-            "XS": "UHd-Wh-XS",
-            "S":  "MVnHs-Wh-S",
-            "M":  "UHd-Wh-M",
-            "L":  "UHd-Wh-L",
-            "XL": "UHd-Wh-XL",
-            "XXL":"UHd-Wh-XXL",
-            "3XL":"UHd-Wh-3XL"
-      },
-      "Royal Blue": {
-            "XS": "UHd-Rb-XS",
-            "S":  "UHd-Rb-S",
-            "M":  "UHd-Rb-M",
-            "L":  "UHd-Rb-L",
-            "XL": "UHd-Rb-XL",
-            "XXL":"UHd-Rb-XXL",
-            "3XL":"UHd-Rb-3XL"
-      }
-    }
-},
-{
+    {
+        id: 2,
+        name: "Unisex Hoodie",
+        price: 1500,
+        originalPrice: 2000,
+        category: "Hoodie",
+        image: "img/UnisexHoodie.jpg",
+        images: ["img/UnisexHoodie.jpg", "img/UnisexHoodie.jpg"],
+        description: "Classic unisex hoodie",
+        sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+        colors: ["White", "Royal Blue"],
+        rating: 4.7,
+        reviews: 12,
+        qikinkProductId: 63172226,
+        qikinkVariations: {
+            "White": { "XS": "UHd-Wh-XS", "S": "MVnHs-Wh-S", "M": "UHd-Wh-M", "L": "UHd-Wh-L", "XL": "UHd-Wh-XL", "XXL":"UHd-Wh-XXL", "3XL":"UHd-Wh-3XL" },
+            "Royal Blue": { "XS": "UHd-Rb-XS", "S": "UHd-Rb-S", "M": "UHd-Rb-M", "L": "UHd-Rb-L", "XL": "UHd-Rb-XL", "XXL":"UHd-Rb-XXL", "3XL":"UHd-Rb-3XL" }
+        }
+    },
+    {
         id: 3,
         name: "Cristiano Ronaldo ManUtd",
         price: 1700,
         originalPrice: 3000,
         image: "img/CristainoRonaldo.jpg",
-        images: [
-            "img/CristainoRonaldofront.jpg",      // Front
-            "img/CristainoRonaldo.jpg",      // Back
-        ],
+        images: ["img/CristainoRonaldo.jpg", "img/CristainoRonaldo.jpg"],
         category: "Basic",
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["White"],
@@ -89,37 +57,19 @@ const products = [
         reviews: 15,
         qikinkProductId: 63321978,
         qikinkVariations: {
-            "White": {
-                        "S": "UOsHd-Wh-S",
-                        "M": "UOsHd-Wh-M", 
-                        "L": "UOsHd-Wh-L",
-                        "XL": "UOsHd-Wh-XL",
-                        "XXL": "UOsHd-Wh-XXL",
-                        "XXL": "UOsHd-Wh-XXXL"
-            }
+            "White": { "S": "UOsHd-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "UOsHd-Wh-XL", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
         }
     }
 ];
 
-// Helper function to get the correct Qikink SKU
+// Helper function to get Qikink SKU
 function getQikinkSKU(productId, size, color) {
     const product = products.find(p => p.id === productId);
-    if (!product || !product.qikinkVariations) {
-        console.error('Product or variations not found:', productId);
-        return null;
-    }
-    
-    const sku = product.qikinkVariations[color]?.[size];
-    if (!sku) {
-        console.error('SKU not found for:', color, size);
-        return null;
-    }
-    
-    return sku;
+    if (!product || !product.qikinkVariations) return null;
+    return product.qikinkVariations[color]?.[size] || null;
 }
 
 const BACKEND_URL = 'https://goatpaglu-backend.onrender.com';
-
 const categories = ["All", "Basic", "Hoodie", "Graphic", "Logo", "Vintage", "Sports", "Art"];
 
 // Global variables
@@ -132,31 +82,39 @@ let orderInProgress = false;
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
     setupEventListeners();
-    // We are leaving static featured products for now to not break the slider init in main.js
-    // loadFeaturedProducts(); 
     loadShopProducts();
     setupCategoryFilter();
 });
 
 function initializeApp() {
     updateCartCount();
-    // Default view is handled by HTML structure (class="page active")
-    // But we ensure Home is active
-    showPage('home');
-    updateNavigation('home');
+    
+    // HISTORY API FIX: Check URL hash on load to open correct page
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+        showPage(hash, false); // Don't push state on initial load
+    } else {
+        showPage('home', false); // Default to home
+    }
 }
 
 function setupEventListeners() {
+    // HISTORY API FIX: Listen for Back/Forward button clicks
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.page) {
+            showPage(event.state.page, false); // Don't push state, just show it
+        } else {
+            showPage('home', false);
+        }
+    });
+
     // Navigation event delegation
     document.body.addEventListener('click', function(e) {
-        // Handle navigation links
-        // Check if clicked element or parent has data-page
         const link = e.target.closest('[data-page]');
         if (link) {
             e.preventDefault();
             const page = link.getAttribute('data-page');
-            showPage(page);
-            updateNavigation(page);
+            showPage(page); // Defaults to pushing state
             return;
         }
     });
@@ -229,7 +187,8 @@ function setupEventListeners() {
     }
 }
 
-function showPage(pageId) {
+// HISTORY API FIX: Added addToHistory parameter
+function showPage(pageId, addToHistory = true) {
     const allPages = document.querySelectorAll('.page');
     allPages.forEach(page => {
         page.classList.remove('active');
@@ -239,6 +198,14 @@ function showPage(pageId) {
     if (targetPage) {
         targetPage.classList.add('active');
         window.scrollTo(0, 0);
+        
+        // Update browser URL and History
+        if (addToHistory) {
+            history.pushState({ page: pageId }, null, `#${pageId}`);
+        }
+        
+        // Update Navigation Active State
+        updateNavigation(pageId);
     }
     
     if (pageId === 'cart') {
@@ -270,14 +237,14 @@ function loadShopProducts() {
     container.innerHTML = filteredProducts.map(product => createProductCard(product)).join('');
 }
 
+// REDIRECT FIX: Updated onclick events to strictly use showProductDetail
 function createProductCard(product) {
-    // Returns col-md-4 wrapper for the Shop grid
     return `
     <div class="col-md-4">
         <div class="product-item">
             <div class="product-title">
                 <a href="#" onclick="event.preventDefault(); showProductDetail(${product.id})">${product.name}</a>
-                <div class="ratting">
+                <div class="rating">
                     ${getStarRating(product.rating)}
                 </div>
             </div>
@@ -286,13 +253,13 @@ function createProductCard(product) {
                     <img src="${product.image}" alt="${product.name}">
                 </a>
                 <div class="product-action">
-                    <a href="#" onclick="event.preventDefault(); quickAddToCart(${product.id})"><i class="fa fa-cart-plus"></i></a>
+                    <a href="#" onclick="event.preventDefault(); showProductDetail(${product.id})"><i class="fa fa-cart-plus"></i></a>
                     <a href="#" onclick="event.preventDefault(); showProductDetail(${product.id})"><i class="fa fa-search"></i></a>
                 </div>
             </div>
             <div class="product-price">
                 <h3><span>₹</span>${product.price}</h3>
-                <a class="btn" href="#" onclick="event.preventDefault(); quickAddToCart(${product.id})"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                <a class="btn" href="#" onclick="event.preventDefault(); showProductDetail(${product.id})"><i class="fa fa-shopping-cart"></i>Buy Now</a>
             </div>
         </div>
     </div>
@@ -316,14 +283,44 @@ function showProductDetail(productId) {
     currentProduct = products.find(p => p.id === productId);
     if (!currentProduct) return;
 
-    // Populate Detail Page
+    // Populate Detail Page Data
     document.getElementById('detailName').textContent = currentProduct.name;
-    document.getElementById('detailImage').src = currentProduct.image;
     document.getElementById('detailPrice').textContent = `₹${currentProduct.price}`;
     document.getElementById('detailOriginalPrice').textContent = `₹${currentProduct.originalPrice}`;
     document.getElementById('detailDescription').textContent = currentProduct.description;
     document.getElementById('detailRating').innerHTML = getStarRating(currentProduct.rating);
     document.getElementById('detailQuantity').value = 1;
+
+    // 1. Set the Main Image
+    const mainImage = document.getElementById('detailImage');
+    mainImage.src = currentProduct.image; 
+
+    // 2. Generate Thumbnails
+    const thumbnailContainer = document.getElementById('detailThumbnails');
+    if(thumbnailContainer) {
+        thumbnailContainer.innerHTML = ''; 
+
+        const imagesToLoad = currentProduct.images && currentProduct.images.length > 0 
+                             ? currentProduct.images 
+                             : [currentProduct.image];
+
+        imagesToLoad.forEach(imgSrc => {
+            const thumbWrapper = document.createElement('div');
+            thumbWrapper.className = 'col-3 p-1'; 
+            
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.className = 'img-fluid border'; 
+            img.style.cursor = 'pointer';
+            
+            img.onclick = function() {
+                mainImage.src = imgSrc;
+            };
+
+            thumbWrapper.appendChild(img);
+            thumbnailContainer.appendChild(thumbWrapper);
+        });
+    }
 
     // Sizes
     const sizeContainer = document.getElementById('detailSizeOptions');
@@ -337,60 +334,18 @@ function showProductDetail(productId) {
         `<button type="button" class="btn color-option" data-color="${color}">${color}</button>`
     ).join('');
     
-    // Add Listeners for Size/Color selection
     setupDetailOptionsListeners();
-
-
-    // ... (Existing code for name, price, description, etc.) ...
-    
-    // 1. Set the Main Image
-    const mainImage = document.getElementById('detailImage');
-    mainImage.src = currentProduct.image; 
-
-    // 2. NEW CODE: Generate Thumbnails
-    const thumbnailContainer = document.getElementById('detailThumbnails');
-    
-    // Clear previous thumbnails
-    if(thumbnailContainer) thumbnailContainer.innerHTML = '';
-
-    // Check if the product has multiple images
-    if (thumbnailContainer && currentProduct.images && currentProduct.images.length > 0) {
-        
-        currentProduct.images.forEach(imgSrc => {
-            // Create a wrapper div for the thumbnail
-            const thumbWrapper = document.createElement('div');
-            thumbWrapper.className = 'col-3 p-1'; // Bootstrap class for spacing
-            
-            // Create the image element
-            const img = document.createElement('img');
-            img.src = imgSrc;
-            img.style.width = '100%';
-            img.style.cursor = 'pointer';
-            img.style.border = '1px solid #ddd';
-            
-            // Add Click Event: Change main image when clicked
-            img.onclick = function() {
-                mainImage.src = imgSrc;
-            };
-
-            thumbWrapper.appendChild(img);
-            thumbnailContainer.appendChild(thumbWrapper);
-        });
-    }
-    
-    // ... (Rest of existing code for ratings, size, color) ...
-
-    
-    showPage('productDetail');
+    showPage('productDetail'); // Will automatically push history state
 }
 
 function setupDetailOptionsListeners() {
     document.querySelectorAll('.size-option').forEach(btn => {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.size-option').forEach(b => b.classList.remove('active-option')); // Custom class for styling selection if needed, or just rely on active
-            document.querySelectorAll('.size-option').forEach(b => b.style.backgroundColor = ""); 
-            document.querySelectorAll('.size-option').forEach(b => b.style.color = "");
-            
+            document.querySelectorAll('.size-option').forEach(b => {
+                b.classList.remove('selected');
+                b.style.backgroundColor = ""; 
+                b.style.color = "";
+            });
             this.style.backgroundColor = "#000";
             this.style.color = "#fff";
             this.classList.add('selected');
@@ -399,10 +354,11 @@ function setupDetailOptionsListeners() {
 
     document.querySelectorAll('.color-option').forEach(btn => {
         btn.addEventListener('click', function() {
-             document.querySelectorAll('.color-option').forEach(b => b.classList.remove('selected'));
-             document.querySelectorAll('.color-option').forEach(b => b.style.backgroundColor = ""); 
-             document.querySelectorAll('.color-option').forEach(b => b.style.color = "");
-
+             document.querySelectorAll('.color-option').forEach(b => {
+                b.classList.remove('selected');
+                b.style.backgroundColor = ""; 
+                b.style.color = "";
+             });
              this.style.backgroundColor = "#000";
              this.style.color = "#fff";
              this.classList.add('selected');
@@ -447,29 +403,6 @@ function addToCartFromDetail() {
     showNotification(`${currentProduct.name} added to cart!`);
 }
 
-function quickAddToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    if (!product) return;
-
-    const defaultSize = product.sizes[0];
-    const defaultColor = product.colors[0];
-
-    const cartItem = {
-        id: Date.now(),
-        productId: productId,
-        name: product.name,
-        price: product.price,
-        size: defaultSize,
-        color: defaultColor,
-        quantity: 1,
-        image: product.image
-    };
-
-    cart.push(cartItem);
-    updateCartCount();
-    showNotification(`${product.name} added to cart!`);
-}
-
 function updateCartCount() {
     const cartBadge = document.getElementById('cartCount');
     if (cartBadge) {
@@ -486,12 +419,14 @@ function updateCartDisplay() {
 
     if (cart.length === 0) {
         cartTableBody.innerHTML = '<tr><td colspan="5" class="text-center">Your cart is empty</td></tr>';
-        cartTotalSummary.innerHTML = `
-             <h1>Cart Summary</h1>
-             <p>Sub Total<span>₹0</span></p>
-             <p>Shipping Cost<span>₹0</span></p>
-             <h2>Grand Total<span>₹0</span></h2>
-        `;
+        if(cartTotalSummary) {
+             cartTotalSummary.innerHTML = `
+                  <h1>Cart Summary</h1>
+                  <p>Sub Total<span>₹0</span></p>
+                  <p>Shipping Cost<span>₹0</span></p>
+                  <h2>Grand Total<span>₹0</span></h2>
+             `;
+        }
         return;
     }
 
@@ -520,12 +455,14 @@ function updateCartDisplay() {
     const shipping = subtotal > 500 ? 0 : 50;
     const total = subtotal + shipping;
 
-    cartTotalSummary.innerHTML = `
-         <h1>Cart Summary</h1>
-         <p>Sub Total<span>₹${subtotal}</span></p>
-         <p>Shipping Cost<span>₹${shipping}</span></p>
-         <h2>Grand Total<span>₹${total}</span></h2>
-    `;
+    if(cartTotalSummary) {
+        cartTotalSummary.innerHTML = `
+             <h1>Cart Summary</h1>
+             <p>Sub Total<span>₹${subtotal}</span></p>
+             <p>Shipping Cost<span>₹${shipping}</span></p>
+             <h2>Grand Total<span>₹${total}</span></h2>
+        `;
+    }
     
     // Also update Checkout Summary if visible
     const checkoutSummary = document.getElementById('checkoutOrderSummary');
@@ -559,7 +496,7 @@ function removeCartItem(index) {
 // Search / Filter Handlers
 function handleSearch() {
     const searchInput = document.getElementById('shopSearchInput');
-    const searchTerm = searchInput.value.toLowerCase();
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
     
     filteredProducts = products.filter(product => 
         product.name.toLowerCase().includes(searchTerm) ||
@@ -587,9 +524,8 @@ function handleSort(sortBy) {
         case 'price-high':
             filteredProducts.sort((a, b) => b.price - a.price);
             break;
-        case 'featured':
         default:
-            filteredProducts = [...products]; // Reset to default order
+            filteredProducts = [...products];
     }
     loadShopProducts();
 }
@@ -686,11 +622,13 @@ async function handleQikinkCheckout(e) {
                         customer_email: customerData.email
                     }
                 })
-            });
+             });
 
             if (!razorpayOrderResponse.ok) throw new Error('Failed to create Razorpay order');
             const razorpayOrderData = await razorpayOrderResponse.json();
             
+            if (typeof Razorpay === 'undefined') throw new Error('Razorpay SDK not loaded');
+
             const options = {
                 key: 'rzp_test_RYDoufRmtnZwEH', 
                 amount: amount,
