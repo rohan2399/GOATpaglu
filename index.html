@@ -7,19 +7,15 @@
         <meta content="GOATpaglu" name="keywords">
         <meta content="High-quality apparels with fast delivery." name="description">
 
-        <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
 
-        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
 
-        <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="lib/slick/slick.css" rel="stylesheet">
         <link href="lib/slick/slick-theme.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <style>
             .page {
@@ -44,7 +40,6 @@
     </head>
 
     <body>
-        <!-- Top bar Start -->
         <div class="top-bar">
             <div class="container-fluid">
                 <div class="row">
@@ -59,9 +54,6 @@
                 </div>
             </div>
         </div>
-        <!-- Top bar End -->
-        
-        <!-- Nav Bar Start -->
         <div class="nav">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -90,9 +82,6 @@
                 </nav>
             </div>
         </div>
-        <!-- Nav Bar End -->      
-        
-        <!-- Bottom Bar Start -->
         <div class="bottom-bar">
             <div class="container-fluid">
                 <div class="row align-items-center">
@@ -124,11 +113,7 @@
                 </div>
             </div>
         </div>
-        <!-- Bottom Bar End -->       
-        
-        <!-- ==================== HOME PAGE ==================== -->
         <div id="homePage" class="page active">
-            <!-- Main Slider Start -->
             <div class="header">
                 <div class="container-fluid">
                     <div class="row">
@@ -184,9 +169,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Main Slider End -->      
-            
-            <!-- Feature Start-->
             <div class="feature">
                 <div class="container-fluid">
                     <div class="row align-items-center">
@@ -221,72 +203,64 @@
                     </div>
                 </div>
             </div>
-            <!-- Feature End-->      
-            
-            <!-- Featured Product Start -->
             <div class="featured-product product">
                 <div class="container-fluid">
                     <div class="section-header">
                         <h1>Featured Products</h1>
                     </div>
                     <div class="row align-items-center product-slider product-slider-4" id="featuredProducts">
-                        <!-- Featured products content will be replaced by app.js or static content -->
                         <div class="col-lg-3">
                             <div class="product-item">
                                 <div class="product-title">
-                                    <a href="#">Unisex Standard T-Shirt</a>
+                                    <a href="#" onclick="event.preventDefault(); showProductDetail(1)">Unisex Standard T-Shirt</a>
                                     <div class="ratting">
                                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                                     </div>
                                 </div>
                                 <div class="product-image">
-                                    <a href="#" onclick="showProductDetail(1)">
+                                    <a href="#" onclick="event.preventDefault(); showProductDetail(1)">
                                         <img src="img/UnisexStandardCrewTShirt.jpg" alt="Product Image">
                                     </a>
                                     <div class="product-action">
-                                        <a href="#" onclick="quickAddToCart(1)"><i class="fa fa-cart-plus"></i></a>
-                                        <a href="#" onclick="showProductDetail(1)"><i class="fa fa-search"></i></a>
+                                        <a href="#" onclick="event.preventDefault(); showProductDetail(1)"><i class="fa fa-cart-plus"></i></a>
+                                        <a href="#" onclick="event.preventDefault(); showProductDetail(1)"><i class="fa fa-search"></i></a>
                                     </div>
                                 </div>
                                 <div class="product-price">
                                     <h3><span>₹</span>799</h3>
-                                    <a class="btn" href="#" onclick="quickAddToCart(1)"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                    <a class="btn" href="#" onclick="event.preventDefault(); showProductDetail(1)"><i class="fa fa-shopping-cart"></i>Buy Now</a>
                                 </div>
                             </div>
                         </div>
                          <div class="col-lg-3">
                             <div class="product-item">
                                 <div class="product-title">
-                                    <a href="#">Unisex Hoodie</a>
+                                    <a href="#" onclick="event.preventDefault(); showProductDetail(2)">Unisex Hoodie</a>
                                     <div class="ratting">
                                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                                     </div>
                                 </div>
                                 <div class="product-image">
-                                    <a href="#" onclick="showProductDetail(2)">
+                                    <a href="#" onclick="event.preventDefault(); showProductDetail(2)">
                                         <img src="img/UnisexHoodie.jpg" alt="Product Image">
                                     </a>
                                     <div class="product-action">
-                                        <a href="#" onclick="quickAddToCart(2)"><i class="fa fa-cart-plus"></i></a>
-                                        <a href="#" onclick="showProductDetail(2)"><i class="fa fa-search"></i></a>
+                                        <a href="#" onclick="event.preventDefault(); showProductDetail(2)"><i class="fa fa-cart-plus"></i></a>
+                                        <a href="#" onclick="event.preventDefault(); showProductDetail(2)"><i class="fa fa-search"></i></a>
                                     </div>
                                 </div>
                                 <div class="product-price">
                                     <h3><span>₹</span>1500</h3>
-                                    <a class="btn" href="#" onclick="quickAddToCart(2)"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                    <a class="btn" href="#" onclick="event.preventDefault(); showProductDetail(2)"><i class="fa fa-shopping-cart"></i>Buy Now</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- Add more static featured products if needed to maintain slider structure -->
-                    </div>
+                        </div>
                 </div>
             </div>
-            <!-- Featured Product End -->       
-        </div>
+            </div>
 
-        <!-- ==================== SHOP PAGE ==================== -->
         <div id="shopPage" class="page">
-            <!-- Breadcrumb Start -->
             <div class="breadcrumb-wrap">
                 <div class="container-fluid">
                     <ul class="breadcrumb">
@@ -295,9 +269,6 @@
                     </ul>
                 </div>
             </div>
-            <!-- Breadcrumb End -->
-            
-            <!-- Product List Start -->
             <div class="product-view">
                 <div class="container-fluid">
                     <div class="row">
@@ -325,42 +296,34 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                 <!-- Empty for now -->
-                                            </div>
+                                                 </div>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <div class="row" id="shopProducts" style="width: 100%; margin: 0;">
-                                    <!-- Shop Products Loaded Here by app.js -->
-                                </div>
+                                    </div>
                                 
                             </div>
-                        </div>           
+                        </div>            
                         
-                        <!-- Side Bar Start -->
                         <div class="col-lg-4 sidebar">
                             <div class="sidebar-widget category">
                                 <h2 class="title">Category</h2>
                                 <nav class="navbar bg-light">
                                     <ul class="navbar-nav" id="categoryFilter">
-                                        <!-- Categories loaded here -->
                                         <li class="nav-item"><a class="nav-link" href="#">All</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-                        <!-- Side Bar End -->
-                    </div>
+                        </div>
                 </div>
             </div>
-            <!-- Product List End -->  
-        </div>
+            </div>
 
-        <!-- ==================== PRODUCT DETAIL PAGE ==================== -->
         <div id="productDetailPage" class="page">
-             <!-- Breadcrumb Start -->
-            <div class="breadcrumb-wrap">
+             <div class="breadcrumb-wrap">
                 <div class="container-fluid">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#" data-page="home">Home</a></li>
@@ -369,9 +332,6 @@
                     </ul>
                 </div>
             </div>
-            <!-- Breadcrumb End -->
-            
-            <!-- Product Detail Start -->
             <div class="product-detail">
                 <div class="container-fluid">
                     <div class="row">
@@ -389,8 +349,7 @@
                                         <div class="product-content">
                                             <div class="title"><h2 id="detailName">Product Name</h2></div>
                                             <div class="ratting" id="detailRating">
-                                                <!-- Stars -->
-                                            </div>
+                                                </div>
                                             <div class="price">
                                                 <h4>Price:</h4>
                                                 <p><span id="detailPrice">₹99</span> <span id="detailOriginalPrice">₹149</span></p>
@@ -406,14 +365,12 @@
                                             <div class="p-size">
                                                 <h4>Size:</h4>
                                                 <div class="btn-group btn-group-sm" id="detailSizeOptions">
-                                                    <!-- Sizes -->
-                                                </div> 
+                                                    </div> 
                                             </div>
                                             <div class="p-color">
                                                 <h4>Color:</h4>
                                                 <div class="btn-group btn-group-sm" id="detailColorOptions">
-                                                    <!-- Colors -->
-                                                </div> 
+                                                    </div> 
                                             </div>
                                             <div class="action">
                                                 <a class="btn" href="#" id="detailAddToCart"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
@@ -429,10 +386,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Product Detail End -->
-        </div>
+            </div>
 
-        <!-- ==================== CART PAGE ==================== -->
         <div id="cartPage" class="page">
             <div class="breadcrumb-wrap">
                 <div class="container-fluid">
@@ -460,8 +415,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="align-middle" id="cartTableBody">
-                                            <!-- Cart Items populated here -->
-                                        </tbody>
+                                            </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -491,7 +445,6 @@
             </div>
         </div>
 
-        <!-- ==================== CHECKOUT PAGE ==================== -->
         <div id="checkoutPage" class="page">
              <div class="breadcrumb-wrap">
                 <div class="container-fluid">
@@ -584,7 +537,6 @@
             </div>
         </div>
 
-        <!-- ==================== CONTACT PAGE ==================== -->
         <div id="contactPage" class="page">
             <div class="breadcrumb-wrap">
                 <div class="container-fluid">
@@ -611,7 +563,6 @@
             </div>
         </div>
 
-        <!-- Footer Start -->
         <div class="footer">
             <div class="container-fluid">
                 <div class="row">
@@ -668,9 +619,6 @@
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
-        
-        <!-- Footer Bottom Start -->
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
@@ -680,21 +628,15 @@
                 </div>
             </div>
         </div>
-        <!-- Footer Bottom End -->       
-        
-        <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         
-        <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/slick/slick.min.js"></script>
         
-        <!-- Template Javascript -->
         <script src="js/main.js"></script>
         
-        <!-- App Script -->
         <script src="app.js"></script>
     </body>
 </html>
