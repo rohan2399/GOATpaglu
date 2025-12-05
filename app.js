@@ -587,7 +587,7 @@ async function handleQikinkCheckout(e) {
             const sku = getQikinkSKU(item.productId, item.size, item.color);
             if (!sku) throw new Error(`Invalid SKU for ${item.name}`);
             return {
-                search_from_my_products: 0,
+                search_from_my_products: 1,
                 print_type_id: 17,
                 quantity: item.quantity.toString(),
                 sku: sku,
