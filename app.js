@@ -16,7 +16,7 @@ const products = [
         reviews: 15,
         qikinkProductId: 63321978,
         qikinkVariations: {
-            "White": { "S": "MVnHs-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "UOsHd-Wh-XL", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
+            "White": { "S": "MVnHs-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "v-9him1COBaVZV1cEPPR8gub3WpAvY8Xc=", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
         }
     },
 
