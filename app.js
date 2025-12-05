@@ -7,7 +7,7 @@ const products = [
         price: 1700,
         originalPrice: 3000,
         image: "img/CristainoRonaldo.jpg",
-        images: ["img/CristainoRonaldofront.jpg"],
+        images: ["img/CristainoRonaldo.jpg","img/CristainoRonaldofront.jpg"],
         category: "Basic",
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["White"],
