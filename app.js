@@ -26,7 +26,7 @@ const products = [
         price: 1700,
         originalPrice: 3000,
         image: "img/LionelMessiBack.jpg",
-        images: ["img/LionelMessiBack.jpg","img/LionelMessifront.jpg"],
+        images: ["img/LionelMessiBack.jpg","img/LionelMessiFront.jpg"],
         category: "Basic",
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["White"],
