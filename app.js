@@ -1,54 +1,13 @@
 // Static product array with REAL Qikink product data
 const products = [
+
     {
         id: 1,
-        name: "Unisex Standard Crew T-Shirt",
-        price: 799,
-        originalPrice: 999,
-        image: "img/UnisexStandardCrewTShirt.jpg",
-        images: [
-            "img/UnisexStandardCrewTShirt.jpg", 
-            "img/UnisexStandardCrewTShirt.jpg", 
-            "img/UnisexStandardCrewTShirt.jpg"
-        ],
-        category: "Basic",
-        sizes: ["S", "M", "L", "XL", "XXL"],
-        colors: ["White", "Black"],
-        description: "Premium unisex crew neck t-shirt with custom DTF printing. Professional quality guaranteed by Qikink.",
-        rating: 4.8,
-        reviews: 15,
-        qikinkProductId: 62944074,
-        qikinkVariations: {
-            "White": { "S": "MStRnHs-Wh-S", "M": "MStRnHs-Wh-M", "L": "MStRnHs-Wh-L", "XL": "MStRnHs-Wh-XL", "XXL": "MStRnHs-Wh-XXL" },
-            "Black": { "S": "MStRnHs-Bk-S", "M": "MStRnHs-Bk-M", "L": "MStRnHs-Bk-L", "XL": "MStRnHs-Bk-XL", "XXL": "MStRnHs-Bk-XXL" }
-        }
-    },
-    {
-        id: 2,
-        name: "Unisex Hoodie",
-        price: 1500,
-        originalPrice: 2000,
-        category: "Hoodie",
-        image: "img/UnisexHoodie.jpg",
-        images: ["img/UnisexHoodie.jpg", "img/UnisexHoodie.jpg"],
-        description: "Classic unisex hoodie",
-        sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
-        colors: ["White", "Royal Blue"],
-        rating: 4.7,
-        reviews: 12,
-        qikinkProductId: 63172226,
-        qikinkVariations: {
-            "White": { "XS": "UHd-Wh-XS", "S": "MVnHs-Wh-S", "M": "UHd-Wh-M", "L": "UHd-Wh-L", "XL": "UHd-Wh-XL", "XXL":"UHd-Wh-XXL", "3XL":"UHd-Wh-3XL" },
-            "Royal Blue": { "XS": "UHd-Rb-XS", "S": "UHd-Rb-S", "M": "UHd-Rb-M", "L": "UHd-Rb-L", "XL": "UHd-Rb-XL", "XXL":"UHd-Rb-XXL", "3XL":"UHd-Rb-3XL" }
-        }
-    },
-    {
-        id: 3,
         name: "Cristiano Ronaldo ManUtd",
         price: 1700,
         originalPrice: 3000,
         image: "img/CristainoRonaldo.jpg",
-        images: ["img/CristainoRonaldo.jpg", "img/CristainoRonaldo.jpg"],
+        images: ["img/CristainoRonaldofront.jpg"],
         category: "Basic",
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["White"],
@@ -57,7 +16,7 @@ const products = [
         reviews: 15,
         qikinkProductId: 63321978,
         qikinkVariations: {
-            "White": { "S": "UOsHd-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "UOsHd-Wh-XL", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
+            "White": { "S": "MVnHs-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "UOsHd-Wh-XL", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
         }
     }
 ];
