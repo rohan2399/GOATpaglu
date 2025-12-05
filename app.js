@@ -18,6 +18,25 @@ const products = [
         qikinkVariations: {
             "White": { "S": "MVnHs-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "UOsHd-Wh-XL", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
         }
+    },
+
+        {
+        id: 2,
+        name: "Lionel Messi Argentina",
+        price: 1700,
+        originalPrice: 3000,
+        image: "img/LionelMessiBack.jpg",
+        images: ["img/LionelMessiBack.jpg","img/LionelMessifront.jpg"],
+        category: "Basic",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        colors: ["White"],
+        description: "Unisex Oversized Hoodie with 400 GSM",
+        rating: 5,
+        reviews: 15,
+        qikinkProductId: 63453632,
+        qikinkVariations: {
+            "White": { "S": "UOsHd-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "UOsHd-Wh-XL", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
+        }
     }
 ];
 
