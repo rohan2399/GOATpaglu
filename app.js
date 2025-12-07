@@ -51,8 +51,7 @@ const BACKEND_URL = 'https://goatpaglu-backend.onrender.com';
 const categories = ["All", "Basic", "Hoodie", "Graphic", "Logo", "Vintage", "Sports", "Art"];
 
 // Global variables
-// Try to load the cart from storage, otherwise make it an empty array
-let cart = JSON.parse(localStorage.getItem('goatpaglu_cart')) || [];
+let cart = [];
 let currentProduct = null;
 let filteredProducts = [...products];
 let orderInProgress = false;
@@ -81,12 +80,6 @@ function initializeApp() {
             return;
         }
     }
-
-
-
- function saveCartToStorage() {
-    localStorage.setItem('goatpaglu_cart', JSON.stringify(cart));
-}
     
     // Fallback for normal pages
     const pageId = hash.replace('#', '');
@@ -411,7 +404,6 @@ function addToCartFromDetail() {
     };
 
     cart.push(cartItem);
-    saveCartToStorage();
     updateCartCount();
     showNotification(`${currentProduct.name} added to cart!`);
 }
@@ -495,7 +487,6 @@ function updateCartItemQuantity(index, change) {
         if (cart[index].quantity <= 0) {
             cart.splice(index, 1);
         }
-        saveCartToStorage(); // <--- ADD THIS LINE
         updateCartCount();
         updateCartDisplay();
     }
@@ -503,7 +494,6 @@ function updateCartItemQuantity(index, change) {
 
 function removeCartItem(index) {
     cart.splice(index, 1);
-    saveCartToStorage(); // <--- ADD THIS LINE
     updateCartCount();
     updateCartDisplay();
 }
@@ -666,7 +656,6 @@ async function handleQikinkCheckout(e) {
                         const result = await verifyResponse.json();
                         if (result.success) {
                             cart = [];
-                            localStorage.removeItem('goatpaglu_cart'); // <--- ADD THIS LINE
                             updateCartCount();
                             showOrderConfirmation(result.data, customerData, total, response.razorpay_payment_id);
                             showNotification('Order Placed Successfully!', 'success');
@@ -704,7 +693,6 @@ async function handleQikinkCheckout(e) {
         const result = await response.json();
         if (result.success) {
             cart = [];
-            localStorage.removeItem('goatpaglu_cart'); // <--- ADD THIS LINE
             updateCartCount();
             showOrderConfirmation(result.data, customerData, total);
             showNotification('Order Placed Successfully!', 'success');
