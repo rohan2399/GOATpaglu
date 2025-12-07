@@ -8,7 +8,7 @@ const products = [
         originalPrice: 3000,
         image: "img/CristainoRonaldo.jpg",
         images: ["img/CristainoRonaldo.jpg","img/CristainoRonaldofront.jpg"],
-        category: "Basic",
+        category: "Hoodie",
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["White"],
         description: "Unisex Oversized Hoodie with 400 GSM",
@@ -16,7 +16,7 @@ const products = [
         reviews: 15,
         qikinkProductId: 63321978,
         qikinkVariations: {
-            "White": { "S": "MVnHs-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "v-9him1COBaVZV1cEPPR8gub3WpAvY8Xc=", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
+            "White": { "S": "v-9him1COBaVZV1cEPPR8gub3WpAvY8XA=", "M": "v-9him1COBaVZV1cEPPR8gub3WpAvY8XE=", "L": "v-9him1COBaVZV1cEPPR8gub3WpAvY8XY=", "XL": "v-9him1COBaVZV1cEPPR8gub3WpAvY8Xc=", "XXL": "v-9him1COBaVZV1cEPPR8gub3WpAvY8XQ=", "XXXL": "v-9him1COBaVZV1cEPPR8gub3WpAvY8XU=" }
         }
     },
 
@@ -27,7 +27,7 @@ const products = [
         originalPrice: 3000,
         image: "img/LionelMessiBack.jpg",
         images: ["img/LionelMessiBack.jpg","img/LionelMessiFront.jpg"],
-        category: "Basic",
+        category: "Hoodie",
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["White"],
         description: "Unisex Oversized Hoodie with 400 GSM",
@@ -35,7 +35,7 @@ const products = [
         reviews: 15,
         qikinkProductId: 63453632,
         qikinkVariations: {
-            "White": { "S": "UOsHd-Wh-S", "M": "UOsHd-Wh-M", "L": "UOsHd-Wh-L", "XL": "UOsHd-Wh-XL", "XXL": "UOsHd-Wh-XXL", "XXXL": "UOsHd-Wh-XXXL" }
+            "White": { "S": "v-9him1COBaVZV1MUJPBYvubzWrwjZ9HQ=", "M": "v-9him1COBaVZV1MUJPBYvubzWrwjZ9HU=", "L": "v-9him1COBaVZV1MUJPBYvubzWrwjZ9Ho=", "XL": "v-9him1COBaVZV1MUJPBYvubzWrwjZ9Hs=", "XXL": "v-9him1COBaVZV1MUJPBYvubzWrwjZ93I=", "XXXL": "v-9him1COBaVZV1MUJPBYvubzWrwjZ93M=" }
         }
     }
 ];
