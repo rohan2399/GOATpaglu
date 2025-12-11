@@ -635,7 +635,7 @@ async function handleQikinkCheckout(e) {
             if (typeof Razorpay === 'undefined') throw new Error('Razorpay SDK not loaded');
 
             const options = {
-                key: 'rzp_test_RYDoufRmtnZwEH', 
+                key: 'rzp_live_RYD3GVaXJeKtz6', 
                 amount: amount,
                 currency: 'INR',
                 name: 'GoatPaglu',
